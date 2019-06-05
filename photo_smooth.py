@@ -23,7 +23,7 @@ class Propagator(nn.Module):
         if type(contentImg) == str:
             content = imageio.imread(contentImg, mode='RGB').astype(np.float64)
         else:
-            content = contentImg.copy().astype(np.float64)
+            content = np.array(contentImg.copy())
         # content = imageio.imread(contentImg, mode='RGB')
 
         if type(initImg) == str:
