@@ -21,7 +21,7 @@ class Propagator(nn.Module):
     def process(self, initImg, contentImg):
 
         if type(contentImg) == str:
-            content = imageio.imread(contentImg, mode='RGB')
+            content = imageio.imread(contentImg, mode='RGB').astype(np.float64)
         else:
             content = contentImg.copy()
         # content = imageio.imread(contentImg, mode='RGB')
