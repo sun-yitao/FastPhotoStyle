@@ -37,7 +37,6 @@ class Propagator(nn.Module):
         w = w1 - 4
         B = B[int((h1-h)/2):int((h1-h)/2+h),int((w1-w)/2):int((w1-w)/2+w),:]
         content = cv2.resize(content, (w,h), interpolation=cv2.INTER_AREA)
-        content = imageio.imresize(content,(h,w))
         B = self.__replication_padding(B,2)
         content = self.__replication_padding(content,2)
         content = content.astype(np.float64)/255
