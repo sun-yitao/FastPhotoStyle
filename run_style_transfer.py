@@ -27,7 +27,7 @@ def run_style_transfer(options):
     for day_image_path, night_image_path in zip(day_image_folder.glob('*.jpg'), 
                                                 cycle(night_image_folder.glob('*.jpg'))):
         print(day_image_path, night_image_path)
-        subprocess.run([
+        command = [
             'python', 'demo.py', 
             '--content_image_path', str(day_image_path),
             '--content_seg_path', str(day_image_path.parent / day_image_path.stem) + '_segmap.png',
@@ -35,7 +35,8 @@ def run_style_transfer(options):
             '--style_seg_path', str(night_image_path.parent / night_image_path.stem) + '_segmap.png'
             '--output_image_path', str(output_folder / day_image_path.stem) \
                                   + '_' + str(night_image_path.stem) + '.jpg'
-        ])
+        ]
+        subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
 
 
 if __name__ == '__main__':
