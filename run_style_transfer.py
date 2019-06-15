@@ -34,7 +34,6 @@ def run_style_transfer(options):
             '--output_image_path', str(output_folder / day_image_path.stem) \
                                 + '_' + str(night_image_path.stem) + '.jpg'
         ]
-        print(command)
         subprocess.call(command)
 
 
