@@ -30,7 +30,7 @@ def run_style_transfer(options):
             '--content_image_path ' + str(day_image_path),
             '--content_seg_path ' + str(day_image_path.parent / day_image_path.stem) + '_segmap.png',
             '--style_image_path ' +  str(night_image_path),
-            '--style_seg_path ' +  str(night_image_path.parent / night_image_path.stem) + '_segmap.png'
+            '--style_seg_path ' +  str(night_image_path.parent / night_image_path.stem) + '_segmap.png',
             '--output_image_path ' +  str(output_folder / day_image_path.stem) \
                                   + '_' + str(night_image_path.stem) + '.jpg'
         ]
