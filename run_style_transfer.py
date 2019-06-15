@@ -22,8 +22,9 @@ def run_style_transfer(options):
     night_image_folder = Path(options.night_image_folder)
     output_folder = Path(options.output_folder)
     os.makedirs(output_folder, exist_ok=True)
-    for day_image_path, night_image_path in zip(list(day_image_folder.glob('*.jpg')), 
-                                                cycle(list(night_image_folder.glob('*.jpg')))):
+    for day_image_path, night_image_path in zip(day_image_folder.glob('*.jpg'), 
+                                                cycle(night_image_folder.glob('*.jpg'))):
+        print(day_image_path, night_image_path)
         subprocess.run([
             'python', 'demo.py', 
             '--content_image_path', str(day_image_path),
