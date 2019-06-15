@@ -19,9 +19,7 @@ def parse_args():
 
 def run_style_transfer(options):
     day_image_folder = Path(options.day_image_folder)
-    print(list(day_image_folder.glob('*.jpg')))
     night_image_folder = Path(options.night_image_folder)
-    print(list(night_image_folder.glob('*.jpg')))
     output_folder = Path(options.output_folder)
     os.makedirs(output_folder, exist_ok=True)
     for day_image_path, night_image_path in zip(day_image_folder.glob('*.jpg'), 
@@ -36,7 +34,7 @@ def run_style_transfer(options):
             '--output_image_path', str(output_folder / day_image_path.stem) \
                                   + '_' + str(night_image_path.stem) + '.jpg'
         ]
-        subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
+        subprocess.call(command)
 
 
 if __name__ == '__main__':
